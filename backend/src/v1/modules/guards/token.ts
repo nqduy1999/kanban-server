@@ -1,7 +1,7 @@
 import { NextFunction, Response } from 'express';
 import * as jsonwebtoken from 'jsonwebtoken';
-import { IGetUserAuthInfoRequest } from '../interface';
-import { UserSchema } from '../schema';
+import { IGetUserAuthInfoRequest } from '../auth/interface';
+import { UserSchema } from '../auth/schema';
 
 
 const tokenDecode = (req: IGetUserAuthInfoRequest) => {

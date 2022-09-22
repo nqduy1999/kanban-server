@@ -14,4 +14,4 @@ const sectionSchema = new Schema({
   }
 }, schemaOptions)
 
-export const SectionSchema = mongoose.model('tasks', sectionSchema);
+export const SectionSchema = mongoose.model('Sections', sectionSchema);
