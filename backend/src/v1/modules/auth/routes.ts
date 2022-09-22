@@ -1,7 +1,7 @@
 import * as expressRouter from 'express'
 import { body } from 'express-validator'
 import { UserController } from './controller'
-import { tokenHandler, validation } from './guards'
+import { tokenHandler, validation } from '../guards'
 import { IGetUserAuthInfoRequest } from './interface'
 import { UserSchema } from './schema'
 

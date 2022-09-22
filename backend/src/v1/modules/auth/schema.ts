@@ -1,9 +1,9 @@
 import * as mongoose from 'mongoose';
-import { schemaOptions } from "../shares/schema.options";
+import { schemaOptions } from "../../shares/schema.options";
 import { IUser } from './interface';
 const Schema = mongoose.Schema;
 
-export const userSchema = new Schema<IUser>({
+const userSchema = new Schema<IUser>({
   username: {
     type: String,
     required: true,
@@ -15,4 +15,4 @@ export const userSchema = new Schema<IUser>({
     select: false
   }
 }, schemaOptions)
-export const UserSchema = mongoose.model('users', userSchema);
+export const UserSchema = mongoose.model('Users', userSchema);
