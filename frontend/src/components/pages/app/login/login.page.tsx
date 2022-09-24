@@ -1,5 +1,11 @@
-import { BaseLayout } from "@/components/templates";
+import { BaseLayout, FormLayout } from "@/components/templates";
 
-const LoginPage = () => <BaseLayout>Login Page</BaseLayout>;
+const LoginPage = () => {
+  return (
+    <BaseLayout>
+      <FormLayout title="Login">Login Page</FormLayout>
+    </BaseLayout>
+  );
+};
 
 export { LoginPage };

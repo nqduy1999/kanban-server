@@ -9,7 +9,7 @@ type ILayoutProps = {
 const BaseLayout = (props: ILayoutProps) => {
   const router = useRouter();
   const isAuthencated = () => {
-    return true;
+    return false;
   };
 
   useEffect(() => {

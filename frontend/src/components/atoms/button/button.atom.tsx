@@ -7,16 +7,18 @@ interface IButton {
     onClick?: any
 }
 
-const Button: FC<IButton> = (props) => {
+const Button: FC<IButton> = ({className, ariaLabel, onClick, children, ...rest}) => {
   return (
     <button
-      className={props.className}
-      aria-label={props.ariaLabel}
-      onClick={props.onClick}
+      className={className}
+      aria-label={ariaLabel}
+      onClick={onClick}
+      {...rest}
     >
-        {props.children}
+        {children}
     </button>
   );
 };
 
 export {Button};
+
