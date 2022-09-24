@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/organisms";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect } from "react";
 
@@ -17,7 +18,12 @@ const BaseLayout = (props: ILayoutProps) => {
     }
   }, [isAuthencated]);
 
-  return <div>{props.children}</div>;
+  return (
+    <div>
+      <Navbar />
+      {props.children}
+    </div>
+  );
 };
 
 export { BaseLayout };

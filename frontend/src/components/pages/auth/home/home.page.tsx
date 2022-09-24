@@ -1,4 +1,3 @@
-import { ThemeToggler } from "@/components/atoms";
 import { Meta } from "@/components/organisms";
 import { AuthLayout } from "@/components/templates";
 
@@ -12,7 +11,6 @@ const HomePage = () => (
   <AuthLayout meta={<Meta {...meta} />}>
     <div className="pt-6 mt-28">
       <div className="flex justify-center items-center flex-col ">
-        <ThemeToggler />
         <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mt-10 transition duration-300">
           <a href="#">
             <img
