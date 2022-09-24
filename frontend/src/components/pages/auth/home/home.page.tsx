@@ -1,3 +1,4 @@
+import ThemeToggler from "@/components/molecules/theme-toggle/theme-toggle.molecules";
 import { Meta } from "@/components/organisms";
 import { AuthLayout } from "@/components/templates";
 
@@ -11,7 +12,8 @@ const HomePage = () => (
   <AuthLayout meta={<Meta {...meta} />}>
     <div className="pt-6 mt-28">
       <div className="flex justify-center items-center flex-col ">
-        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-10">
+        <ThemeToggler />
+        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mt-10 transition duration-300">
           <a href="#">
             <img
               className="rounded-t-lg "
@@ -21,18 +23,18 @@ const HomePage = () => (
           </a>
           <div className="p-5">
             <a href="#">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 Laptops that you can't afford even in 2022.
               </h5>
             </a>
-            <p className="mb-3 font-normal text-gray-700">
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
               Lorem ipsum dolor sit amet. Cum laudantium laborum ut saepe
               facilis aut rerum corporis qui debitis voluptas. Rerum dolores aut
               voluptas galisum aut iure repellendus.
             </p>
             <a
               href="#"
-              className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+              className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Read more
               <svg
