@@ -20,7 +20,7 @@ const AuthLayout = (props: ILayoutProps) => {
   };
 
   useEffect(() => {
-    if (!isAuthencated) {
+    if (!isAuthencated()) {
       router.push("/login");
     }
   }, [isAuthencated]);

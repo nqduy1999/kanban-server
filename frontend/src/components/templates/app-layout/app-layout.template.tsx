@@ -1,9 +1,23 @@
-import type { ReactNode } from "react";
+import { useRouter } from "next/router";
+import { ReactNode, useEffect } from "react";
 
 type ILayoutProps = {
   children: ReactNode;
 };
 
-const BaseLayout = (props: ILayoutProps) => <div>{props.children}</div>;
+const BaseLayout = (props: ILayoutProps) => {
+  const router = useRouter();
+  const isAuthencated = () => {
+    return true;
+  };
+
+  useEffect(() => {
+    if (isAuthencated()) {
+      router.push("/");
+    }
+  }, [isAuthencated]);
+
+  return <div>{props.children}</div>;
+};
 
 export { BaseLayout };
