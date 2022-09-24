@@ -1,5 +1,7 @@
+import { HomePage } from "@/components/pages";
+
 const Index = () => {
-  return <>Index</>;
+  return <HomePage />;
 };
 
 export default Index;

@@ -1,11 +1,11 @@
 import { render, screen, within } from "@testing-library/react";
 
-import { LayoutMain } from "./layout-mains.template";
+import { AuthLayout } from "./auth-layout.template";
 
 describe("Main template", () => {
   describe("Render method", () => {
     it("should have 3 menu items", () => {
-      render(<LayoutMain meta={null}>{null}</LayoutMain>);
+      render(<AuthLayout meta={null}>{null}</AuthLayout>);
 
       const menuItemList = screen.getAllByRole("listitem");
 
@@ -13,7 +13,7 @@ describe("Main template", () => {
     });
 
     it("should have a link to support creativedesignsguru.com", () => {
-      render(<LayoutMain meta={null}>{null}</LayoutMain>);
+      render(<AuthLayout meta={null}>{null}</AuthLayout>);
 
       const copyrightSection = screen.getByText(/© Copyright/);
       const copyrightLink = within(copyrightSection).getByRole("link");
