@@ -1,0 +1,1 @@
+export * from './layout-mains/layout-mains.template'
