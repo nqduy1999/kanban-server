@@ -22,4 +22,4 @@ const ThemeToggler = () => {
   );
 };
 
-export default ThemeToggler;
+export {ThemeToggler};

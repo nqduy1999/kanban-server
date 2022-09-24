@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.2",
-    "@heroicons/react": "^2.0.11",
+    "@heroicons/react": "^1.0.6",
     "next": "^12.3.0",
     "next-seo": "^5.5.0",
     "next-themes": "^0.2.1",
@@ -30,6 +30,7 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@next/bundle-analyzer": "^12.3.0",
+    "@tailwindcss/typography": "^0.5.7",
     "@testing-library/cypress": "^8.0.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

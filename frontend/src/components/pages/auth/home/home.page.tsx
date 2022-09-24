@@ -1,4 +1,4 @@
-import ThemeToggler from "@/components/molecules/theme-toggle/theme-toggle.molecules";
+import { ThemeToggler } from "@/components/atoms";
 import { Meta } from "@/components/organisms";
 import { AuthLayout } from "@/components/templates";
 
