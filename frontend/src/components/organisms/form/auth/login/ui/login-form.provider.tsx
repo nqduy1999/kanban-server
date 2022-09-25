@@ -1,18 +1,22 @@
 import React, { FC, ReactElement, ReactNode } from "react";
 
 export const LoginFormContext: any = React.createContext({
-  getSubmitValues: () => ({})
+  getSubmitValues: () => ({}),
 });
 
-interface ILoginForm {
-    isLoading?: boolean,
-    children?: ReactElement | ReactNode
+interface ILoginFormProvider {
+  isLoading?: boolean;
+  children?: ReactElement | ReactNode;
 }
-export const LoginFormProvider: FC<ILoginForm> = ({ isLoading, children }) => {
+
+export const LoginFormProvider: FC<ILoginFormProvider> = ({
+  isLoading,
+  children,
+}) => {
   return (
     <LoginFormContext.Provider
       value={{
-        isLoading
+        isLoading,
       }}
     >
       {children}
