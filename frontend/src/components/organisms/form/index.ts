@@ -1,1 +1,1 @@
-export * from './login/login-form.comp'
+export * from './login/ui/login-form.comp'
