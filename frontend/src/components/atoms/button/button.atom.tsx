@@ -1,13 +1,20 @@
 import React, { FC, ReactElement } from "react";
 
-interface IButton {
-    className: string,
-    ariaLabel?: string,
-    children: React.ReactNode | ReactElement,
-    onClick?: any
+export interface IButton {
+  className: string;
+  ariaLabel?: string;
+  children: React.ReactNode | ReactElement;
+  onClick?: any;
+  type?: "button" | "submit";
 }
 
-const Button: FC<IButton> = ({className, ariaLabel, onClick, children, ...rest}) => {
+const Button: FC<IButton> = ({
+  className,
+  ariaLabel,
+  onClick,
+  children,
+  ...rest
+}) => {
   return (
     <button
       className={className}
@@ -15,10 +22,12 @@ const Button: FC<IButton> = ({className, ariaLabel, onClick, children, ...rest})
       onClick={onClick}
       {...rest}
     >
-        {children}
+      {children}
     </button>
   );
 };
 
-export {Button};
-
+Button.defaultProps = {
+  type: "button",
+};
+export { Button };
