@@ -11,7 +11,7 @@ export const LoginFormContent = () => {
         placeholder="Input username"
         type="text"
       />
-      <div className="mt-3" />
+      <div className="mt-4" />
       <FormField
         label="Password"
         name="password"

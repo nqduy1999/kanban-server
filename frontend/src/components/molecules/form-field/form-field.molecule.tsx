@@ -22,6 +22,11 @@ export const FormField: FC<IFieldForm> = ({
       meta={meta}
       name={field.name}
       value={field.value}
+      className={`leading-none w-full text-gray-900 dark:text-gray-50 p-3 focus:outline-none ${
+        meta.touched && meta.error
+          ? "border-rose-500"
+          : "border-gray-400 dark:border-gray-600"
+      } mt-2 border-2 dark:bg-gray-600 rounded-lg bg-white`}
       onChange={field.onChange}
       type={type}
       {...rest}
