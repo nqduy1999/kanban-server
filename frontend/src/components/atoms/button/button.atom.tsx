@@ -6,6 +6,7 @@ export interface IButton {
   children: React.ReactNode | ReactElement;
   onClick?: any;
   type?: "button" | "submit";
+  id?: string;
 }
 
 const Button: FC<IButton> = ({

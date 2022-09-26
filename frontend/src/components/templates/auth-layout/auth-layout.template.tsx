@@ -1,4 +1,4 @@
-import { Meta, Navbar } from "@/components/organisms";
+import { Header, Meta } from "@/components/organisms";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect } from "react";
 
@@ -28,7 +28,7 @@ const AuthLayout = (props: ILayoutProps) => {
   return (
     <div>
       <Meta title={props.meta.title} description={props.meta.description} />
-      <Navbar />
+      <Header />
       {props.children}
     </div>
   );

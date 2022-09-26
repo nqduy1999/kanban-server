@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/organisms";
+import { Header } from "@/components/organisms";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect } from "react";
 
@@ -20,7 +20,7 @@ const BaseLayout = (props: ILayoutProps) => {
 
   return (
     <div>
-      <Navbar />
+      <Header />
       {props.children}
     </div>
   );
