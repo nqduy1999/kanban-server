@@ -6,7 +6,7 @@ import {
 
 const Header = () => {
   return (
-    <nav className="px-2 p-4 bg-gray-200 border-gray-200  dark:shadow-none dark:bg-gray-900 dark:border-gray-700">
+    <nav className="px-2 p-4 bg-blue-100 border-gray-200  dark:shadow-none dark:bg-gray-900 dark:border-gray-700">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <a href="#" className="flex items-center">
           <img
@@ -18,7 +18,7 @@ const Header = () => {
             Kanban
           </span>
         </a>
-        <MenuButton className="">asf</MenuButton>
+        {/* <MenuButton className="">asf</MenuButton> */}
         <div
           className="hidden w-full md:block md:w-auto"
           id="navbar-multi-level"

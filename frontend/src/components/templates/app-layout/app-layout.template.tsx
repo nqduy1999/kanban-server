@@ -19,7 +19,7 @@ const BaseLayout = (props: ILayoutProps) => {
   }, [isAuthencated]);
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-cyan-200 to-cyan-400 h-screen dark:bg-gradient-to-b from-gray-900 dark:via-purple-900 dark:to-violet-600">
       <Header />
       {props.children}
     </div>
