@@ -3,7 +3,7 @@ import React, { FC } from "react";
 export interface IInput {
   className?: string;
   type?: string;
-  placeholder: string;
+  placeholder?: string;
   onChange?: any;
   name?: string | any;
   id?: string;

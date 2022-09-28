@@ -6,19 +6,20 @@ interface IFormLayout {
   subtitle?: string;
   children: React.ReactElement | ReactNode;
 }
-const FormLayout: FC<IFormLayout> = ({ title, subtitle, children }) => {
+const FormLayout: FC<IFormLayout> = ({ title, children }) => {
   return (
     <div className="pt-6 mt-20">
-      <div className="flex justify-center items-center flex-col ">
-        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mt-10 transition duration-300">
-          <img className="rounded-t-lg " src={image.background} alt="" />
-          <div className="p-5">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <div className="flex justify-center items-center">
+        <img
+          className="w-[28rem] object-cover h-[26.5625rem] rounded-l-lg border border-white"
+          src={image.background}
+          alt=""
+        />
+        <div className="w-full bg-white rounded-r-lg shadow md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               {title}
-            </h5>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              {subtitle}
-            </p>
+            </h1>
             {children}
           </div>
         </div>

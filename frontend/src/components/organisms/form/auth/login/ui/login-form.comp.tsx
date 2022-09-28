@@ -34,12 +34,21 @@ export const LoginForm: FC<ILoginForm> = ({ onSubmit, isLoading }) => {
         <LoginFormProvider>
           <LoginFormContent />
           <LoadingButton
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center mt-5 w-full justify-center	"
+            className="mt-4 w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             loading={isLoading}
             type="submit"
           >
             Login
           </LoadingButton>
+          <p className="mt-4 text-sm font-light text-gray-500 dark:text-gray-400">
+            Don’t have an account yet?{" "}
+            <a
+              href="#"
+              className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+            >
+              Register
+            </a>
+          </p>
         </LoginFormProvider>
       </Form>
     </Formik>

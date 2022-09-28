@@ -1,8 +1,4 @@
-import {
-  LanguageToogle,
-  MenuButton,
-  ThemeToggler,
-} from "@/components/molecules";
+import { LanguageToogle, ThemeToggler } from "@/components/molecules";
 
 const Header = () => {
   return (
