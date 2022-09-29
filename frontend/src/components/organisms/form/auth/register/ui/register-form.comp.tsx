@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import { LoginFormProvider } from "./login-form.provider";
+import { RegisterFormProvider } from "./register-form.provider";
 import { LoadingButton } from "@/components/molecules";
-import { LoginFormContent } from "./login-form.content";
+import { RegisterFormContent } from "./register-form.content";
 import {
   passwordValidationSchema,
   usernameValidationSchema,
@@ -31,8 +31,8 @@ export const LoginForm: FC<ILoginForm> = ({ onSubmit, isLoading }) => {
       onSubmit={onSubmit}
     >
       <Form>
-        <LoginFormProvider>
-          <LoginFormContent />
+        <RegisterFormProvider>
+          <RegisterFormContent />
           <LoadingButton
             className="mt-4 w-full text-white bg-primary-700 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
             loading={isLoading}
@@ -49,7 +49,7 @@ export const LoginForm: FC<ILoginForm> = ({ onSubmit, isLoading }) => {
               Register
             </a>
           </p>
-        </LoginFormProvider>
+        </RegisterFormProvider>
       </Form>
     </Formik>
   );
