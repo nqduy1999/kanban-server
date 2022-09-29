@@ -26,13 +26,13 @@ npm install
 To start the express server, run the following
 
 ```bash backend for development mode
-$npm run start 
+npm run start 
 ```
 
 ```bash frontend for development mode
-$npm run dev
+npm run dev
 ```
-Open [http://localhost:1111](http://localhost:1111) for backend or http://localhost:3000 and take a look around.
+Open [http://localhost:1111](http://localhost:1111) for backend or http://localhost:3000 for frontend and take a look around.
 
 
 ## Tech
