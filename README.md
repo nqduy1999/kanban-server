@@ -3,9 +3,9 @@
 
 ## Requirements
 
-* Node 16(https://nodejs.org/en/)
-* Git(https://git-scm.com/)
-* MongoDB(https://www.mongodb.com/)
+* [Node 16](https://nodejs.org/en/)
+* [Git](https://git-scm.com/)
+* [MongoDB](https://www.mongodb.com/)
 
 
 ## Common setup 
