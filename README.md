@@ -25,11 +25,12 @@ npm install
 
 To start the express server, run the following
 
-```bash backend for development mode
+```bash 
 npm run start 
 ```
+To start the nextjs client, run the following
 
-```bash frontend for development mode
+```bash 
 npm run dev
 ```
 Open [http://localhost:1111](http://localhost:1111) for backend or http://localhost:3000 for frontend and take a look around.
