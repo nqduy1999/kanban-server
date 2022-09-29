@@ -9,12 +9,7 @@ interface IFieldForm extends IInput {
   type: "text" | "input" | "password";
 }
 
-export const FormField: FC<IFieldForm> = ({
-  type,
-  name,
-  classLabel,
-  ...rest
-}) => {
+export const FormField: FC<IFieldForm> = ({ type, name, ...rest }) => {
   const [field, meta] = useField({ name, type });
 
   return (

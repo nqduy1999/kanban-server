@@ -1,7 +1,7 @@
 import { FormField, FormRemember } from "@/components/molecules";
 import React from "react";
 
-export const LoginFormContent = () => {
+export const RegisterFormContent = () => {
   return (
     <div className="space-y-4 md:space-y-6">
       <FormField
