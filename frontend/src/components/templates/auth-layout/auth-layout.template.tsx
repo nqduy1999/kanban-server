@@ -16,7 +16,7 @@ const AuthLayout = (props: ILayoutProps) => {
   const router = useRouter();
 
   const isAuthencated = () => {
-    return true;
+    return false;
   };
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const AuthLayout = (props: ILayoutProps) => {
   }, [isAuthencated]);
 
   return (
-    <div className="bg-gradient-to-r from-cyan-200 to-cyan-400 h-screen dark:bg-gradient-to-b dark:via-purple-900 dark:to-violet-600">
+    <div className="bg-white dark:bg-slate-800 h-screen	">
       <Meta title={props.meta.title} description={props.meta.description} />
       <Header />
       {props.children}

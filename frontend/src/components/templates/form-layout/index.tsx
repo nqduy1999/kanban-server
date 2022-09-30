@@ -11,7 +11,7 @@ const FormLayout: FC<IFormLayout> = ({ title, children }) => {
     <div className="pt-6 mt-20">
       <div className="flex justify-center items-center">
         <img
-          className="lg:block hidden w-[28rem] object-cover h-[26.5625rem] rounded-l-lg border border-white dark:border-gray-800"
+          className="lg:block hidden w-[28rem] object-cover h-[26.6875rem] rounded-l-lg border border-white dark:border-gray-800"
           src={image.background}
           alt=""
         />
