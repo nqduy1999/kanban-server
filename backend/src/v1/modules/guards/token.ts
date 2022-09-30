@@ -34,3 +34,16 @@ export const verifyToken = async (req: IGetUserAuthInfoRequest, res: Response, n
     res.status(401).json('Unathorized')
   }
 }
+
+export const verifyTokenAdmin = async (req: IGetUserAuthInfoRequest, res: Response, next: NextFunction) => {
+  const tokenDecoded = tokenDecode(req)
+  if (tokenDecoded) {
+    const user = await UserSchema.findById(tokenDecoded.id)
+    if (!user) return res.status(401).json({ msg: 'Unathorized' })
+    if (user.role !== 'admin') return res.status(401).json({ msg: "You don't have permission to access this data" })
+    req.user = user
+    next()
+  } else {
+    res.status(401).json({ msg: 'Unathorized' })
+  }
+}
