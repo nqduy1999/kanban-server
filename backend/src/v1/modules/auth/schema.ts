@@ -13,6 +13,10 @@ const userSchema = new Schema<IUser>({
     type: String,
     required: true,
     select: false
+  },
+  role: {
+    type: String,
+    default: 'admin'
   }
 }, schemaOptions)
 export const UserSchema = mongoose.model('Users', userSchema);
