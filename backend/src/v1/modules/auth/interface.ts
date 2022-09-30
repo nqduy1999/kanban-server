@@ -4,6 +4,7 @@ import { ObjectId } from "mongoose";
 export interface IUser {
   username: string,
   password: string,
+  role?: string,
   _id: ObjectId
 }
 

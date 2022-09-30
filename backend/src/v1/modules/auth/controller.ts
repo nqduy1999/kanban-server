@@ -6,24 +6,22 @@ import { UserSchema } from "./schema";
 export class UserController {
   public static register = async (req: Request, res: Response) => {
     const { password } = req.body
-    console.log(process.env.PASSWORD_SECRET_KEY, 'process.env.PASSWORD_SECRET_KEY');
-
     try {
-      // req.body.password = CryptoJS.AES.encrypt(
-      //   password,
-      //   process.env.PASSWORD_SECRET_KEY
-      // )
-      // const user = await UserSchema.create(req.body)
+      req.body.password = CryptoJS.AES.encrypt(
+        password,
+        process.env.PASSWORD_SECRET_KEY
+      )
+      const user = await UserSchema.create(req.body)
 
-      // const token = jsonwebtoken.sign(
-      //   { id: user._id },
-      //   process.env.TOKEN_SECRET_KEY,
-      //   { expiresIn: '24h' }
-      // )
+      const token = jsonwebtoken.sign(
+        { id: user._id },
+        process.env.TOKEN_SECRET_KEY,
+        { expiresIn: '24h' }
+      )
 
-      res.status(201).json({
-        msg: 'register'
-      })
+      console.log(token, user);
+
+      res.status(201).json({ user, token })
     } catch (err) {
       console.log(err, 'err');
 
@@ -34,11 +32,7 @@ export class UserController {
   public static login = async (req: Request, res: Response) => {
     const { username, password } = req.body
     try {
-      console.log(UserSchema, "UserSchema");
-
       const user = await UserSchema.findOne({ username }).select('password username')
-      console.log(user, 'user login');
-
       if (!user) {
         return res.status(401).json({
           errors: [
@@ -75,6 +69,16 @@ export class UserController {
       )
 
       res.status(200).json({ user, token })
+
+    } catch (err) {
+      res.status(500).json(err)
+    }
+  }
+
+  public static getAllUser = async (req: Request, res: Response) => {
+    try {
+      const users = await UserSchema.find();
+      res.status(200).json({ users })
 
     } catch (err) {
       res.status(500).json(err)
