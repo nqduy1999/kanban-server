@@ -5,8 +5,7 @@ const URI = "mongodb://127.0.0.1:27017/kanban"
 mongoose.connect(`${URI}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-} as ConnectOptions).then((db) => {
-  console.log(db);
+} as ConnectOptions).then(() => {
   console.log("Database Connected Successfuly.");
 })
   .catch((err) => {
