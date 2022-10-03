@@ -1,5 +1,7 @@
 import mongoose, { ConnectOptions } from "mongoose"
 
+console.log(process.env.ISLOCAL, 'IS LOCAL');
+
 const URI = "mongodb://127.0.0.1:27017/kanban"
 
 mongoose.connect(`${URI}`, {
