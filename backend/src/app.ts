@@ -9,7 +9,8 @@ import * as dotenv from "dotenv";
 import { authRouter, boardRouter, sectionRouter, taskRouter, adminRouter } from "./v1/routes";
 
 
-const app = express()
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const app: any = express()
 dotenv.config()
 config()
 
