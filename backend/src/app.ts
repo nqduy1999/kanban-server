@@ -9,7 +9,7 @@ import * as dotenv from "dotenv";
 import { authRouter, boardRouter, sectionRouter, taskRouter, adminRouter } from "./v1/routes";
 
 
-const app: express.Application = express()
+const app = express()
 dotenv.config()
 config()
 
