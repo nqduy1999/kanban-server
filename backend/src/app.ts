@@ -9,10 +9,8 @@ import * as dotenv from "dotenv";
 import { authRouter, boardRouter, sectionRouter, taskRouter, adminRouter } from "./v1/routes";
 
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const app: any = express()
+const app: express.Express = express()
 dotenv.config()
-config()
 
 function config(): void {
   app.use(bodyParser.json());
@@ -30,5 +28,6 @@ function config(): void {
   app.use('/api/v1/admin', adminRouter)
 
 }
+config()
 
 export default app;
