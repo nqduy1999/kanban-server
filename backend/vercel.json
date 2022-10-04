@@ -1,14 +1,18 @@
 {
+  "version": 2,
+  "buildCommand": "yarn build",
+  "devCommand": "yarn dev",
+  "outputDirectory": "public",
   "builds": [
     {
-      "src": "src/server.ts",
-      "use": "@now/node"
+      "src": "public/server.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/server.ts"
+      "dest": "public/server.js"
     }
   ]
 }
