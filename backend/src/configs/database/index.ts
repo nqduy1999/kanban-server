@@ -2,12 +2,12 @@ import mongoose, { ConnectOptions } from "mongoose"
 
 console.log(process.env.ISLOCAL, 'IS LOCAL');
 
-const URI = "mongodb://127.0.0.1:27017/kanban"
+const URI = (process.env.ISLOCAL !== "false" ?  "mongodb://127.0.0.1:27017/kanban" : process.env.MONGODB_URL)
 
 mongoose.connect(`${URI}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-} as ConnectOptions).then(() => {
+} as ConnectOptions).then(() => {  
   console.log("Database Connected Successfuly.");
 })
   .catch((err) => {

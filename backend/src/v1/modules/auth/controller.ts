@@ -5,7 +5,7 @@ import { UserSchema } from "./schema";
 
 export class UserController {
   public static register = async (req: Request, res: Response) => {
-    const { password } = req.body
+    const { password } = req.body    
     try {
       req.body.password = CryptoJS.AES.encrypt(
         password,
