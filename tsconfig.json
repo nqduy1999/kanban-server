@@ -6,9 +6,9 @@
     "sourceMap": true,
     "target": "es6",
     "outDir": "./public",
-    "baseUrl": "./src"
+    "baseUrl": "kanban/src"
   },
-  "include": ["src/**/*.ts"],
+  "include": ["kanban/src/**/*.ts"],
   "exclude": ["node_modules"],
   "paths": {
     "@v1/*": ["src/v1/*"],
