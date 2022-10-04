@@ -4,10 +4,10 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "start": "npm run build && nodemon dist/server.js",
+    "start": "npm run build && nodemon public/server.js",
     "start:dev": "tsc && nodemon src/server.ts",
-    "build": "rimraf ./dist && tsc",
-    "start-build": "nodemon dist/server.js"
+    "build": "rimraf ./public && tsc",
+    "start-build": "nodemon public/server.js"
   },
   "keywords": [],
   "author": "",
