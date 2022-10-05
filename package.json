@@ -7,7 +7,8 @@
     "start": "npm run build && nodemon public/server.js",
     "start:dev": "tsc && nodemon src/server.ts",
     "build": "rimraf ./public && tsc",
-    "start-build": "nodemon public/server.js"
+    "start-build": "nodemon public/server.js",
+    "heroku-prebuild": "npm install --only=dev"
   },
   "keywords": [],
   "author": "",
