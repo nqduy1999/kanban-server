@@ -5,7 +5,7 @@ import { UserSchema } from "./schema";
 
 export class UserController {
   public static register = async (req: Request, res: Response) => {
-    const { password } = req.body    
+    const { password } = req.body
     try {
       req.body.password = CryptoJS.AES.encrypt(
         password,
@@ -75,6 +75,21 @@ export class UserController {
     }
   }
 
+
+  public static findUserByName = async (req: Request, res: Response) => {
+    const { username } = req.body
+    try {
+      const users = await UserSchema.find({ username });
+      if (users.length > 0) {
+        res.status(400).json({ msg: 'Username existed' })
+      }
+      res.status(200).json({ msg: 'Available' })
+
+    } catch (err) {
+      res.status(500).json(err)
+    }
+  }
+
   public static getAllUser = async (req: Request, res: Response) => {
     try {
       const users = await UserSchema.find();
@@ -84,4 +99,5 @@ export class UserController {
       res.status(500).json(err)
     }
   }
+
 }

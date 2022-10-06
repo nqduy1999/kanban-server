@@ -49,6 +49,10 @@ router.post(
   }
 )
 
+router.post(
+  '/checking-username',
+  UserController.findUserByName
+)
 
 router.get(
   '/anything',
