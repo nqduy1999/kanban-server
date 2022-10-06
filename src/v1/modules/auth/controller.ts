@@ -81,7 +81,7 @@ export class UserController {
     try {
       const users = await UserSchema.find({ username });
       if (users.length > 0) {
-        res.status(400).json({ msg: 'Username existed' })
+        return res.status(400).json({ msg: 'Username existed' })
       }
       res.status(200).json({ msg: 'Available' })
 

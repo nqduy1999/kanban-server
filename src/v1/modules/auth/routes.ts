@@ -51,6 +51,7 @@ router.post(
 
 router.post(
   '/checking-username',
+  validation.validate,
   UserController.findUserByName
 )
 
