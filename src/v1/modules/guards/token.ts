@@ -1,6 +1,6 @@
 import { NextFunction, Response } from 'express';
 import * as jsonwebtoken from 'jsonwebtoken';
-import { IGetUserAuthInfoRequest } from '../auth/interface';
+import { IGetUserAuthInfoRequest, JwtPayload } from '../auth/interface';
 import { UserSchema } from '../auth/schema';
 
 
@@ -10,7 +10,7 @@ const tokenDecode = (req: IGetUserAuthInfoRequest) => {
     const bearer = bearerHeader.split(' ')[1]
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const tokenDecoded: jsonwebtoken.JwtPayload | any = jsonwebtoken.verify(
+      const tokenDecoded: JwtPayload | any = jsonwebtoken.verify(
         bearer,
         process.env.TOKEN_SECRET_KEY
       )
