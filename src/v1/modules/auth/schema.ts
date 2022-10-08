@@ -16,7 +16,7 @@ const userSchema = new Schema<IUser>({
   },
   role: {
     type: String,
-    default: 'admin'
+    default: 'user'
   }
 }, schemaOptions)
 export const UserSchema = mongoose.model('Users', userSchema);
