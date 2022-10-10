@@ -71,10 +71,9 @@ export class UserController {
       if (users.length > 0) {
         return res.status(400).json(renderResponse(400, {}, 'Username existed'))
       }
-      res.status(200).json({ msg: 'Available' })
-
+      res.status(200).json(renderResponse(200, {}, 'Available'))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, ''))
     }
   }
 
