@@ -4,6 +4,7 @@ import { TaskSchema } from "../tasks/schema"
 import { BoardSchema } from "./schema"
 import { Request, Response } from "express";
 import { IGetUserAuthInfoRequest } from "../auth/interface";
+import { renderResponse } from "../../middlewares/response.middleware";
 
 export class BoardController {
 
@@ -14,9 +15,14 @@ export class BoardController {
         user: req.user._id,
         position: boardsCount > 0 ? boardsCount : 0
       })
-      res.status(201).json(board)
+      res.status(201).json(
+        renderResponse(201, { board }, "")
+      )
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500,
+        {
+          err
+        }, ""))
     }
   }
 
@@ -24,7 +30,7 @@ export class BoardController {
   public static getAll = async (req: IGetUserAuthInfoRequest, res: Response) => {
     try {
       const boards = await BoardSchema.find({ user: req.user._id }).sort('-position')
-      res.status(200).json(boards)
+      res.status(200).json(renderResponse(200, { boards }, ""))
     } catch (err) {
       res.status(500).json(err)
     }
@@ -41,9 +47,9 @@ export class BoardController {
           { $set: { position: key } }
         )
       }
-      res.status(200).json('updated')
+      res.status(200).json(renderResponse(200, {}, "update success"))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, ""))
     }
   }
 
@@ -51,16 +57,16 @@ export class BoardController {
     const { boardId } = req.params
     try {
       const board: any = await BoardSchema.findOne({ user: req.user._id, _id: boardId })
-      if (!board) return res.status(404).json('Board not found')
+      if (!board) return res.status(404).json(renderResponse(404, {}, 'Board not found'))
       const sections: any = await SectionSchema.find({ board: boardId })
       for (const section of sections) {
         const tasks: any = await TaskSchema.find({ section: section.id }).populate('section').sort('-position')
         section._doc.tasks = tasks
       }
       board._doc.sections = sections
-      res.status(200).json(board)
+      res.status(200).json(renderResponse(200, { board }, ""))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, "err"))
     }
   }
 
@@ -72,7 +78,7 @@ export class BoardController {
       if (title === '') req.body.title = 'Untitled'
       if (description === '') req.body.description = 'Add description here'
       const currentBoard = await BoardSchema.findById(boardId)
-      if (!currentBoard) return res.status(404).json('Board not found')
+      if (!currentBoard) return res.status(404).json(renderResponse(404, {}, 'Board not found'))
 
       if (favourite !== undefined && currentBoard.favourite !== favourite) {
         const favourites = await BoardSchema.find({
@@ -97,7 +103,7 @@ export class BoardController {
         boardId,
         { $set: req.body }
       )
-      res.status(200).json(board)
+      res.status(200).json(renderResponse(200, { board }, ""))
     } catch (err) {
       res.status(500).json(err)
     }
@@ -109,9 +115,9 @@ export class BoardController {
         user: req.user._id,
         favourite: true
       }).sort('-favouritePosition')
-      res.status(200).json(favourites)
+      res.status(200).json(renderResponse(200, { favourites }, ""))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, ""))
     }
   }
 
@@ -125,9 +131,9 @@ export class BoardController {
           { $set: { favouritePosition: key } }
         )
       }
-      res.status(200).json('updated')
+      res.status(200).json(renderResponse(200, {}, 'updated'))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, ""))
     }
   }
 
@@ -170,9 +176,9 @@ export class BoardController {
         )
       }
 
-      res.status(200).json('deleted')
+      res.status(200).json(renderResponse(200, {}, 'deleted'))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, ""))
     }
   }
 }

@@ -2,6 +2,7 @@
 import { TaskSchema } from "../tasks/schema"
 import { SectionSchema } from "./schema"
 import { Request, Response } from "express";
+import { renderResponse } from "../../middlewares/response.middleware";
 
 export class SectionController {
 
@@ -10,9 +11,9 @@ export class SectionController {
     try {
       const section: any = await SectionSchema.create({ board: boardId })
       section._doc.tasks = []
-      res.status(201).json(section)
+      res.status(201).json(renderResponse(200, { section }, ""))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(200, { err }, ""))
     }
   }
 
@@ -24,9 +25,9 @@ export class SectionController {
         { $set: req.body }
       )
       section._doc.tasks = []
-      res.status(200).json(section)
+      res.status(200).json(renderResponse(200, { section }, ""))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(200, { err }, ""))
     }
   }
 
@@ -35,9 +36,9 @@ export class SectionController {
     try {
       await TaskSchema.deleteMany({ section: sectionId })
       await SectionSchema.deleteOne({ _id: sectionId })
-      res.status(200).json('deleted')
+      res.status(200).json(renderResponse(200, {}, 'deleted'))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(200, { err }, ""))
     }
   }
 }

@@ -2,6 +2,7 @@
 import { SectionSchema } from "../section/schema"
 import { TaskSchema } from "./schema"
 import { Request, Response } from "express";
+import { renderResponse } from "../../middlewares/response.middleware";
 
 export class TaskController {
 
@@ -15,9 +16,9 @@ export class TaskController {
         position: tasksCount > 0 ? tasksCount : 0
       })
       task._doc.section = section
-      res.status(201).json(task)
+      res.status(201).json(renderResponse(200, { task }, ""))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, ""))
     }
   }
 
@@ -28,9 +29,9 @@ export class TaskController {
         taskId,
         { $set: req.body }
       )
-      res.status(200).json(task)
+      res.status(200).json(renderResponse(200, { task }, "updated"))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, ""))
     }
   }
 
@@ -46,9 +47,9 @@ export class TaskController {
           { $set: { position: key } }
         )
       }
-      res.status(200).json('deleted')
+      res.status(200).json(renderResponse(200, {}, 'deleted'))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, ""))
     }
   }
 
@@ -86,9 +87,9 @@ export class TaskController {
           }
         )
       }
-      res.status(200).json('updated')
+      res.status(200).json(renderResponse(500, {}, 'updated'))
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(renderResponse(500, { err }, ""))
     }
   }
 }
