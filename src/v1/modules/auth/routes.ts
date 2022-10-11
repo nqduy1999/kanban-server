@@ -4,6 +4,7 @@ import { UserController } from './controller'
 import { tokenHandler, validation } from '../guards'
 import { IGetUserAuthInfoRequest } from './interface'
 import { UserSchema } from './schema'
+import { renderResponse } from '../../middlewares/response.middleware'
 
 const router = expressRouter.Router()
 
@@ -45,7 +46,7 @@ router.post(
   '/verify-token',
   tokenHandler.verifyToken,
   (req: IGetUserAuthInfoRequest, res: expressRouter.Response) => {
-    res.status(200).json({ user: req.user })
+    res.status(200).json(renderResponse(200, { user: req.user }, 'Verify success'))
   }
 )
 

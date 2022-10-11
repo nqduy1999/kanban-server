@@ -33,7 +33,7 @@ class App {
     this.app.use(cookieParser());
     this.app.use(express.static(path.join(__dirname, "public")));
     this.app.use("/api/v1/auth", authRouter);
-    this.app.use("/api/v1/board", boardRouter);
+    this.app.use("/api/v1/boards", boardRouter);
     this.app.use("/api/v1/section", sectionRouter);
     this.app.use("/api/v1/task", taskRouter);
     this.app.use("/api/v1/admin", adminRouter);

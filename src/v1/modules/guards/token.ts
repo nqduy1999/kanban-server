@@ -1,11 +1,14 @@
 import { NextFunction, Response } from 'express';
 import * as jsonwebtoken from 'jsonwebtoken';
+import { renderResponse } from '../../middlewares/response.middleware';
 import { IGetUserAuthInfoRequest, JwtPayload } from '../auth/interface';
 import { UserSchema } from '../auth/schema';
 
 
 const tokenDecode = (req: IGetUserAuthInfoRequest) => {
   const bearerHeader = req.headers['authorization']
+  console.log(req.headers, "req.headers");
+
   if (bearerHeader) {
     const bearer = bearerHeader.split(' ')[1]
     try {
@@ -27,11 +30,11 @@ export const verifyToken = async (req: IGetUserAuthInfoRequest, res: Response, n
   const tokenDecoded = tokenDecode(req)
   if (tokenDecoded) {
     const user = await UserSchema.findById(tokenDecoded.id)
-    if (!user) return res.status(401).json('Unathorized')
+    if (!user) return res.status(401).json(renderResponse(401, {}, 'Unathorized'))
     req.user = user
     next()
   } else {
-    res.status(401).json('Unathorized')
+    res.status(401).json(renderResponse(401, {}, 'Unathorized'))
   }
 }
 
