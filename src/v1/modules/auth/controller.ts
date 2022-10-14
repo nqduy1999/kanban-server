@@ -13,13 +13,8 @@ export class UserController {
         process.env.PASSWORD_SECRET_KEY
       )
       const user = await UserSchema.create(req.body)
-      const token = jsonwebtoken.sign(
-        { id: user._id },
-        process.env.TOKEN_SECRET_KEY,
-        { expiresIn: '24h' }
-      )
 
-      res.status(201).json(renderResponse(201, { user, token }, "Register success"))
+      res.status(201).json(renderResponse(201, { user }, "Register success"))
     } catch (err) {
       res.status(500).json(err)
     }
@@ -53,10 +48,14 @@ export class UserController {
       const token = jsonwebtoken.sign(
         { id: user._id },
         process.env.TOKEN_SECRET_KEY,
-        { expiresIn: '24h' }
+        { expiresIn: '900' }
       )
 
-      res.status(200).json(renderResponse(200, { user, token }, "Login success"))
+      const refreshToken = jsonwebtoken.sign(user, process.env.REFRESH_TOKEN_SECRET_KEY, {
+        expiresIn: '86400'
+      });
+
+      res.status(200).json(renderResponse(200, { user, token, refreshToken }, "Login success"))
 
     } catch (err) {
       res.status(500).json(err)

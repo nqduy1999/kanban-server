@@ -17,6 +17,7 @@ const tokenDecode = (req: IGetUserAuthInfoRequest) => {
         bearer,
         process.env.TOKEN_SECRET_KEY
       )
+
       return tokenDecoded
     } catch {
       return false
