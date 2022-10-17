@@ -5,9 +5,8 @@ import { IGetUserAuthInfoRequest, JwtPayload } from '../auth/interface';
 import { UserSchema } from '../auth/schema';
 
 
-const tokenDecode = (req: IGetUserAuthInfoRequest) => {
+export const tokenDecode = (req: IGetUserAuthInfoRequest) => {
   const bearerHeader = req.headers['authorization']
-  console.log(req.headers, "req.headers");
 
   if (bearerHeader) {
     const bearer = bearerHeader.split(' ')[1]

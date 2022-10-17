@@ -43,10 +43,17 @@ router.post(
 )
 
 router.post(
+  '/user',
+  tokenHandler.verifyToken,
+  UserController.getUser
+)
+
+
+router.post(
   '/verify-token',
   tokenHandler.verifyToken,
   (req: IGetUserAuthInfoRequest, res: expressRouter.Response) => {
-    res.status(200).json(renderResponse(200, { user: req.user }, 'Verify success'))
+    res.status(200).json(renderResponse(200, {}, 'Verify success'))
   }
 )
 

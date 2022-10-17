@@ -3,6 +3,8 @@ import * as CryptoJS from 'crypto-js';
 import * as jsonwebtoken from 'jsonwebtoken';
 import { UserSchema } from "./schema";
 import { renderResponse } from "../../middlewares/response.middleware";
+import { tokenDecode } from "../guards/token";
+import { IGetUserAuthInfoRequest } from "./interface";
 
 export class UserController {
   public static register = async (req: Request, res: Response) => {
@@ -48,20 +50,35 @@ export class UserController {
       const token = jsonwebtoken.sign(
         { id: user._id },
         process.env.TOKEN_SECRET_KEY,
-        { expiresIn: '900' }
+        { expiresIn: '30m' }
       )
 
-      const refreshToken = jsonwebtoken.sign(user, process.env.REFRESH_TOKEN_SECRET_KEY, {
-        expiresIn: '86400'
-      });
-
-      res.status(200).json(renderResponse(200, { user, token, refreshToken }, "Login success"))
+      res.status(200).json(renderResponse(200, { token }, "Login success"))
 
     } catch (err) {
+      console.log(err, 'err');
+
       res.status(500).json(err)
     }
   }
 
+
+  public static getUser = async (req: IGetUserAuthInfoRequest, res: Response) => {
+    try {
+      const tokenDecoded = tokenDecode(req)
+      if (tokenDecoded) {
+        const user = await UserSchema.findById(tokenDecoded.id)
+        console.log(user, " user success");
+        if (!user) return res.status(401).json(renderResponse(401, {}, 'Unathorized'))
+        req.user = user
+        return res.status(200).json(renderResponse(200, { user }, 'Success'))
+      } else {
+        res.status(401).json(renderResponse(401, {}, 'Unathorized'))
+      }
+    } catch (err) {
+      res.status(500).json(err)
+    }
+  }
 
   public static findUserByName = async (req: Request, res: Response) => {
     const { username } = req.body
