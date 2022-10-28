@@ -40,11 +40,11 @@ Open [http://localhost:1111](http://localhost:1111) for backend or http://localh
 
 Open source projects:
 
-- [NextJs](https://nextjs.org/) - Next.js gives you the best developer experience with all the features you need for production.
-- [ExpressJs](https://expressjs.com/) - Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+- [ExpressJs](https://expressjs.com/) i- Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 - [Typescript](https://www.typescriptlang.org/) - TypeScript extends JavaScript by adding types.
 - [ESLint](https://eslint.org/) - Find and fix problems in your JavaScript code.
-- [Tailwind-CSS](https://tailwindcss.com/) - A utility-first CSS framework packed with classes like flex , pt-4 , text-center and rotate-90 that can be composed to build any design
-- [HeadlessUI](https://headlessui.com/) - Completely unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS
+
+
 
 
